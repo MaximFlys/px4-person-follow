@@ -1,0 +1,2 @@
+[console_scripts]
+start_flight = flight_control_node.flight_node:main

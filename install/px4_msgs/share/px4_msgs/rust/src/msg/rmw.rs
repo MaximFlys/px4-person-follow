@@ -1,0 +1,1 @@
+/home/maxim/super_ws/build/px4_msgs/rosidl_generator_rs/px4_msgs/rust/src/msg/rmw.rs

@@ -1,0 +1,28 @@
+[0.515s] Invoking command in '/home/maxim/super_ws/src/flight_control_node': AMENT_PREFIX_PATH=/home/maxim/super_ws/install/px4_msgs CMAKE_PREFIX_PATH=/home/maxim/super_ws/install/px4_msgs DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/maxim/super_ws/install/px4_msgs/lib PS1=(.local) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/maxim/super_ws/build/flight_control_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/maxim/super_ws/install/flight_control_node/lib/python3.12/site-packages:/home/maxim/super_ws/install/px4_msgs/lib/python3.12/site-packages VIRTUAL_ENV_PROMPT=(.local) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/flight_control_node build --build-base /home/maxim/super_ws/build/flight_control_node/build install --record /home/maxim/super_ws/build/flight_control_node/install.log --install-scripts $base/lib/flight_control_node --single-version-externally-managed install_data
+[0.706s] running egg_info
+[0.719s] writing ../../build/flight_control_node/flight_control_node.egg-info/PKG-INFO
+[0.719s] writing dependency_links to ../../build/flight_control_node/flight_control_node.egg-info/dependency_links.txt
+[0.720s] writing entry points to ../../build/flight_control_node/flight_control_node.egg-info/entry_points.txt
+[0.720s] writing requirements to ../../build/flight_control_node/flight_control_node.egg-info/requires.txt
+[0.720s] writing top-level names to ../../build/flight_control_node/flight_control_node.egg-info/top_level.txt
+[0.747s] reading manifest file '../../build/flight_control_node/flight_control_node.egg-info/SOURCES.txt'
+[0.747s] adding license file 'LICENSE'
+[0.748s] writing manifest file '../../build/flight_control_node/flight_control_node.egg-info/SOURCES.txt'
+[0.748s] running build
+[0.748s] running build_py
+[0.748s] copying flight_control_node/flight_node.py -> /home/maxim/super_ws/build/flight_control_node/build/lib/flight_control_node
+[0.748s] copying flight_control_node/__init__.py -> /home/maxim/super_ws/build/flight_control_node/build/lib/flight_control_node
+[0.749s] running install
+[0.753s] running install_lib
+[0.766s] copying /home/maxim/super_ws/build/flight_control_node/build/lib/flight_control_node/flight_node.py -> /home/maxim/super_ws/install/flight_control_node/lib/python3.12/site-packages/flight_control_node
+[0.766s] byte-compiling /home/maxim/super_ws/install/flight_control_node/lib/python3.12/site-packages/flight_control_node/flight_node.py to flight_node.cpython-312.pyc
+[0.768s] running install_data
+[0.768s] copying resource/flight_control_node -> /home/maxim/super_ws/install/flight_control_node/share/ament_index/resource_index/packages
+[0.768s] copying package.xml -> /home/maxim/super_ws/install/flight_control_node/share/flight_control_node
+[0.768s] running install_egg_info
+[0.782s] removing '/home/maxim/super_ws/install/flight_control_node/lib/python3.12/site-packages/flight_control_node-0.0.0-py3.12.egg-info' (and everything under it)
+[0.782s] Copying ../../build/flight_control_node/flight_control_node.egg-info to /home/maxim/super_ws/install/flight_control_node/lib/python3.12/site-packages/flight_control_node-0.0.0-py3.12.egg-info
+[0.783s] running install_scripts
+[0.853s] Installing start_flight script to /home/maxim/super_ws/install/flight_control_node/lib/flight_control_node
+[0.853s] writing list of installed files to '/home/maxim/super_ws/build/flight_control_node/install.log'
+[0.873s] Invoked command in '/home/maxim/super_ws/src/flight_control_node' returned '0': AMENT_PREFIX_PATH=/home/maxim/super_ws/install/px4_msgs CMAKE_PREFIX_PATH=/home/maxim/super_ws/install/px4_msgs DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/maxim/super_ws/install/px4_msgs/lib PS1=(.local) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/maxim/super_ws/build/flight_control_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/maxim/super_ws/install/flight_control_node/lib/python3.12/site-packages:/home/maxim/super_ws/install/px4_msgs/lib/python3.12/site-packages VIRTUAL_ENV_PROMPT=(.local) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/flight_control_node build --build-base /home/maxim/super_ws/build/flight_control_node/build install --record /home/maxim/super_ws/build/flight_control_node/install.log --install-scripts $base/lib/flight_control_node --single-version-externally-managed install_data

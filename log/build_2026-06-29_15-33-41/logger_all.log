@@ -1,0 +1,206 @@
+[0.083s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.083s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x72afbd06ea50>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x72afbd1ee4b0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x72afbd1ee4b0>>, mixin_verb=('build',))
+[0.111s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.111s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.111s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.111s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.111s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.111s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.111s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/maxim/super_ws'
+[0.111s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.111s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.111s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.111s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.111s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.111s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.111s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.111s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.111s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.134s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src/flight_control_node) by extensions ['ignore', 'ignore_ament_install']
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src/flight_control_node) by extension 'ignore'
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src/flight_control_node) by extension 'ignore_ament_install'
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src/flight_control_node) by extensions ['colcon_pkg']
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src/flight_control_node) by extension 'colcon_pkg'
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src/flight_control_node) by extensions ['colcon_meta']
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src/flight_control_node) by extension 'colcon_meta'
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src/flight_control_node) by extensions ['ros']
+[0.135s] Level 1:colcon.colcon_core.package_identification:_identify(src/flight_control_node) by extension 'ros'
+[0.137s] DEBUG:colcon.colcon_core.package_identification:Package 'src/flight_control_node' with type 'ros.ament_python' and name 'flight_control_node'
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'ignore'
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'ignore_ament_install'
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['colcon_pkg']
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'colcon_pkg'
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['colcon_meta']
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'colcon_meta'
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['ros']
+[0.137s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'ros'
+[0.138s] DEBUG:colcon.colcon_core.package_identification:Package 'src/px4_msgs' with type 'ros.ament_cmake' and name 'px4_msgs'
+[0.138s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.138s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.138s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.138s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.138s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.151s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.151s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.152s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.152s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_args' from command line to 'None'
+[0.152s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_target' from command line to 'None'
+[0.152s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.152s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.152s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.152s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.152s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.152s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.152s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.152s] DEBUG:colcon.colcon_core.verb:Building package 'px4_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/maxim/super_ws/build/px4_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/maxim/super_ws/install/px4_msgs', 'merge_install': False, 'path': '/home/maxim/super_ws/src/px4_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'flight_control_node' build argument 'cmake_args' from command line to 'None'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'flight_control_node' build argument 'cmake_target' from command line to 'None'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'flight_control_node' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'flight_control_node' build argument 'cmake_clean_cache' from command line to 'False'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'flight_control_node' build argument 'cmake_clean_first' from command line to 'False'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'flight_control_node' build argument 'cmake_force_configure' from command line to 'False'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'flight_control_node' build argument 'ament_cmake_args' from command line to 'None'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'flight_control_node' build argument 'catkin_cmake_args' from command line to 'None'
+[0.153s] Level 5:colcon.colcon_core.verb:set package 'flight_control_node' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.153s] DEBUG:colcon.colcon_core.verb:Building package 'flight_control_node' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/maxim/super_ws/build/flight_control_node', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/maxim/super_ws/install/flight_control_node', 'merge_install': False, 'path': '/home/maxim/super_ws/src/flight_control_node', 'symlink_install': False, 'test_result_base': None}
+[0.153s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.153s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.153s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/maxim/super_ws/src/px4_msgs' with build type 'ament_cmake'
+[0.153s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/maxim/super_ws/src/px4_msgs'
+[0.155s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.155s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.155s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.160s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/maxim/super_ws/build/px4_msgs': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(.local) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(.local) /usr/bin/cmake --build /home/maxim/super_ws/build/px4_msgs -- -j8 -l8
+[1.820s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/maxim/super_ws/build/px4_msgs' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(.local) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(.local) /usr/bin/cmake --build /home/maxim/super_ws/build/px4_msgs -- -j8 -l8
+[1.826s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/maxim/super_ws/build/px4_msgs': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(.local) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(.local) /usr/bin/cmake --install /home/maxim/super_ws/build/px4_msgs
+[2.312s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(px4_msgs)
+[2.312s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/maxim/super_ws/build/px4_msgs' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=(.local) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(.local) /usr/bin/cmake --install /home/maxim/super_ws/build/px4_msgs
+[2.313s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/px4_msgs' for CMake module files
+[2.314s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/px4_msgs' for CMake config files
+[2.329s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'cmake_prefix_path')
+[2.329s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.ps1'
+[2.330s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.dsv'
+[2.330s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.sh'
+[2.330s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/px4_msgs/lib'
+[2.331s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'ld_library_path_lib')
+[2.331s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.ps1'
+[2.331s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.dsv'
+[2.331s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.sh'
+[2.331s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/px4_msgs/bin'
+[2.331s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/px4_msgs/lib/pkgconfig/px4_msgs.pc'
+[2.332s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/px4_msgs/lib/python3.12/site-packages'
+[2.332s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'pythonpath')
+[2.333s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/pythonpath.ps1'
+[2.334s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/pythonpath.dsv'
+[2.334s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/pythonpath.sh'
+[2.334s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/px4_msgs/bin'
+[2.335s] INFO:colcon.colcon_core.shell:Creating package script '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/package.ps1'
+[2.335s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/package.dsv'
+[2.336s] INFO:colcon.colcon_core.shell:Creating package script '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/package.sh'
+[2.336s] INFO:colcon.colcon_core.shell:Creating package script '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/package.bash'
+[2.337s] INFO:colcon.colcon_core.shell:Creating package script '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/package.zsh'
+[2.337s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/maxim/super_ws/install/px4_msgs/share/colcon-core/packages/px4_msgs)
+[2.337s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(px4_msgs)
+[2.338s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/px4_msgs' for CMake module files
+[2.338s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/px4_msgs' for CMake config files
+[2.353s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'cmake_prefix_path')
+[2.353s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.ps1'
+[2.354s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.dsv'
+[2.354s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.sh'
+[2.354s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/px4_msgs/lib'
+[2.354s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'ld_library_path_lib')
+[2.354s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.ps1'
+[2.355s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.dsv'
+[2.355s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.sh'
+[2.355s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/px4_msgs/bin'
+[2.355s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/px4_msgs/lib/pkgconfig/px4_msgs.pc'
+[2.355s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/px4_msgs/lib/python3.12/site-packages'
+[2.356s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'pythonpath')
+[2.356s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/pythonpath.ps1'
+[2.356s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/pythonpath.dsv'
+[2.356s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/hook/pythonpath.sh'
+[2.357s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/px4_msgs/bin'
+[2.357s] INFO:colcon.colcon_core.shell:Creating package script '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/package.ps1'
+[2.357s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/package.dsv'
+[2.358s] INFO:colcon.colcon_core.shell:Creating package script '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/package.sh'
+[2.358s] INFO:colcon.colcon_core.shell:Creating package script '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/package.bash'
+[2.358s] INFO:colcon.colcon_core.shell:Creating package script '/home/maxim/super_ws/install/px4_msgs/share/px4_msgs/package.zsh'
+[2.359s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/maxim/super_ws/install/px4_msgs/share/colcon-core/packages/px4_msgs)
+[2.359s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/maxim/super_ws/src/flight_control_node' with build type 'ament_python'
+[2.359s] Level 1:colcon.colcon_core.shell:create_environment_hook('flight_control_node', 'ament_prefix_path')
+[2.359s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/flight_control_node/share/flight_control_node/hook/ament_prefix_path.ps1'
+[2.359s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/maxim/super_ws/install/flight_control_node/share/flight_control_node/hook/ament_prefix_path.dsv'
+[2.360s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/flight_control_node/share/flight_control_node/hook/ament_prefix_path.sh'
+[2.360s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.360s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.519s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/maxim/super_ws/src/flight_control_node'
+[2.520s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.520s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.874s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: init_catalog, install, develop, update_catalog, build_ext, bdist_egg, saveopts, sdist, bdist_dumb, install_scripts, egg_info, easy_install, symlink_data, setopt, rotate, install_data, editable_wheel, build, dist_info, alias, check, bdist, install_headers, install_egg_info, extract_messages, install_lib, bdist_rpm, compile_catalog, build_scripts, build_clib, clean, bdist_wheel, build_py
+[2.875s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/maxim/super_ws/src/flight_control_node': AMENT_PREFIX_PATH=/home/maxim/super_ws/install/px4_msgs CMAKE_PREFIX_PATH=/home/maxim/super_ws/install/px4_msgs DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/maxim/super_ws/install/px4_msgs/lib PS1=(.local) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/maxim/super_ws/build/flight_control_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/maxim/super_ws/install/flight_control_node/lib/python3.12/site-packages:/home/maxim/super_ws/install/px4_msgs/lib/python3.12/site-packages VIRTUAL_ENV_PROMPT=(.local) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/flight_control_node build --build-base /home/maxim/super_ws/build/flight_control_node/build install --record /home/maxim/super_ws/build/flight_control_node/install.log --install-scripts $base/lib/flight_control_node --single-version-externally-managed install_data
+[3.232s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/flight_control_node' for CMake module files
+[3.232s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/maxim/super_ws/src/flight_control_node' returned '0': AMENT_PREFIX_PATH=/home/maxim/super_ws/install/px4_msgs CMAKE_PREFIX_PATH=/home/maxim/super_ws/install/px4_msgs DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/maxim/super_ws/install/px4_msgs/lib PS1=(.local) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/maxim/super_ws/build/flight_control_node/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/maxim/super_ws/install/flight_control_node/lib/python3.12/site-packages:/home/maxim/super_ws/install/px4_msgs/lib/python3.12/site-packages VIRTUAL_ENV_PROMPT=(.local) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/flight_control_node build --build-base /home/maxim/super_ws/build/flight_control_node/build install --record /home/maxim/super_ws/build/flight_control_node/install.log --install-scripts $base/lib/flight_control_node --single-version-externally-managed install_data
+[3.233s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/flight_control_node' for CMake config files
+[3.233s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/flight_control_node/lib'
+[3.233s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/flight_control_node/bin'
+[3.233s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/flight_control_node/lib/pkgconfig/flight_control_node.pc'
+[3.234s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/flight_control_node/lib/python3.12/site-packages'
+[3.234s] Level 1:colcon.colcon_core.shell:create_environment_hook('flight_control_node', 'pythonpath')
+[3.234s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/flight_control_node/share/flight_control_node/hook/pythonpath.ps1'
+[3.234s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/maxim/super_ws/install/flight_control_node/share/flight_control_node/hook/pythonpath.dsv'
+[3.234s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maxim/super_ws/install/flight_control_node/share/flight_control_node/hook/pythonpath.sh'
+[3.235s] Level 1:colcon.colcon_core.environment:checking '/home/maxim/super_ws/install/flight_control_node/bin'
+[3.235s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(flight_control_node)
+[3.235s] INFO:colcon.colcon_core.shell:Creating package script '/home/maxim/super_ws/install/flight_control_node/share/flight_control_node/package.ps1'
+[3.235s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/maxim/super_ws/install/flight_control_node/share/flight_control_node/package.dsv'
+[3.236s] INFO:colcon.colcon_core.shell:Creating package script '/home/maxim/super_ws/install/flight_control_node/share/flight_control_node/package.sh'
+[3.236s] INFO:colcon.colcon_core.shell:Creating package script '/home/maxim/super_ws/install/flight_control_node/share/flight_control_node/package.bash'
+[3.236s] INFO:colcon.colcon_core.shell:Creating package script '/home/maxim/super_ws/install/flight_control_node/share/flight_control_node/package.zsh'
+[3.237s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/maxim/super_ws/install/flight_control_node/share/colcon-core/packages/flight_control_node)
+[3.237s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[3.237s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[3.237s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[3.237s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[3.241s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[3.241s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[3.241s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[3.255s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[3.255s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/maxim/super_ws/install/local_setup.ps1'
+[3.255s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/maxim/super_ws/install/_local_setup_util_ps1.py'
+[3.256s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/maxim/super_ws/install/setup.ps1'
+[3.257s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/maxim/super_ws/install/local_setup.sh'
+[3.257s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/maxim/super_ws/install/_local_setup_util_sh.py'
+[3.258s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/maxim/super_ws/install/setup.sh'
+[3.258s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/maxim/super_ws/install/local_setup.bash'
+[3.258s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/maxim/super_ws/install/setup.bash'
+[3.259s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/maxim/super_ws/install/local_setup.zsh'
+[3.259s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/maxim/super_ws/install/setup.zsh'

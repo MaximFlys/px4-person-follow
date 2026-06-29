@@ -1,0 +1,1 @@
+/home/maxim/super_ws/src/px4_msgs/msg/Ping.msg
