@@ -1,1 +1,0 @@
-/home/maxim/super_ws/src/px4_msgs/msg/SystemPower.msg
