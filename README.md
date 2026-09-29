@@ -90,34 +90,25 @@ ros2 run flight_control_node start_flight
 
 ## Tested in Gazebo Harmonic
 
-The node was flown in PX4 SITL against Gazebo Harmonic (`gz-sim` 8.14) using the `x500_mono_cam` airframe in the `baylands` world. The PX4 tree was `~/src/PX4-Autopilot` at `v1.18.0-alpha1-113-g1403709f65`. The camera and the YOLO detector are outside this repo: `ros_gz_image` bridges the Gazebo image, and [ros2_yolos_cpp](https://github.com/Geekgineer/ros2_yolos_cpp) publishes `/yolos_detector/detections` from a YOLO11n ONNX model.
+The node was flown in PX4 SITL against Gazebo Harmonic (`gz-sim` 8.14) using the `x500_mono_cam` airframe in the `baylands` world. The PX4 tree is `~/src/PX4-Autopilot` (`v1.18.0-alpha1-113-g1403709f65`). The camera bridge and the YOLO detector live outside this repo.
 
-Four terminals, each with ROS 2 Jazzy sourced. The flight-control terminal also sources this workspace.
+One command opens the seven terminals as separate windows and starts them in order. The image bridge, camera viewer, and YOLO launch wait until PX4 prints `Ready for takeoff`. The flight node waits until `/yolos_detector` has been configured and activated, because that node arms about one second after it starts.
 
 ```bash
-# 1. PX4 SITL + Gazebo Harmonic
-cd ~/src/PX4-Autopilot
-export PX4_GZ_WORLD=baylands
-make px4_sitl gz_x500_mono_cam
-
-# 2. uXRCE-DDS agent
-MicroXRCEAgent udp4 -p 8888
-
-# 3. Gazebo camera → ROS image
-ros2 run ros_gz_image image_bridge \
-  /world/baylands/model/x500_mono_cam_0/link/camera_link/sensor/camera/image
-
-# 4. Detector, then the flight node
-ros2 launch ros2_yolos_cpp detector.launch.py \
-  model_path:=~/ros2_ws/models/yolo11n.onnx \
-  labels_path:=~/ros2_ws/models/coco.names \
-  image_topic:=/world/baylands/model/x500_mono_cam_0/link/camera_link/sensor/camera/image
-ros2 lifecycle set /yolos_detector configure
-ros2 lifecycle set /yolos_detector activate
-ros2 run flight_control_node start_flight
+./scripts/run_gazebo_sim.sh
 ```
 
-On this machine the SITL build was started with `QT_QPA_PLATFORM=xcb` so the Gazebo window opened under X11.
+| Window | What it runs |
+| --- | --- |
+| 1 PX4 Gazebo | `PX4_GZ_WORLD=baylands` and `QT_QPA_PLATFORM=xcb make px4_sitl gz_x500_mono_cam` in `~/src/PX4-Autopilot` |
+| 2 Image bridge | `ros_gz_image image_bridge` on the x500 mono camera topic |
+| 3 uXRCE agent | `MicroXRCEAgent udp4 -p 8888` |
+| 4 Camera view | `rqt_image_view` on that same camera topic |
+| 5 YOLO | `ros2 launch ros2_yolos_cpp detector.launch.py` with `~/ros2_ws/models/yolo11n.onnx` and `coco.names` |
+| 6 Detector lifecycle | `ros2 lifecycle set /yolos_detector configure`, then `activate` |
+| 7 Flight node | `ros2dev` (`source /opt/ros/jazzy/setup.bash`), then `source ~/super_ws/install/setup.bash`, then `ros2 run flight_control_node start_flight` |
+
+Close the PX4 tab to stop the simulator. If PX4 SITL or `MicroXRCEAgent` is already running, the script exits instead of starting a second copy.
 
 ## License
 
