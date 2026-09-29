@@ -1,4 +1,4 @@
-# DFC
+# px4-person-follow
 
 I wrote `flight_control_node` to close a vision loop on a PX4 quadcopter. An OpenCV image pipeline runs a YOLO11n model on the drone camera. My node subscribes to those detections and publishes the velocity setpoints PX4 flies.
 
