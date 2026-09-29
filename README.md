@@ -29,6 +29,36 @@ After one second of setpoints the node commands PX4 offboard mode and arms. Run 
 
 `px4_msgs` in this workspace is [PX4/px4_msgs](https://github.com/PX4/px4_msgs) at `ca9895d` (package version 2.0.1, aligned with PX4 `07bac138`). The message package has to match the firmware you fly.
 
+## How the node talks to PX4
+
+The node does not talk to Gazebo. Gazebo simulates the airframe and the camera. PX4 is the autopilot: it estimates attitude and it is the only thing that moves the vehicle. The ROS graph reaches PX4 through uXRCE-DDS.
+
+```
+Gazebo camera
+    → ros_gz_image
+    → YOLO detector (/yolos_detector/detections)
+    → flight_control_node
+    → /fmu/in/*          Micro XRCE-DDS Agent (UDP 8888)
+    → PX4 uORB           PX4 SITL
+    → simulated x500     Gazebo
+```
+
+PX4's `uxrce_dds_client` runs inside SITL. `MicroXRCEAgent udp4 -p 8888` is the agent on the companion side. uORB publications show up as ROS topics under `/fmu/out/`. ROS publications on `/fmu/in/` are delivered to the matching uORB subscriptions. `vehicle_attitude` uses sensor-data QoS, which is what the PX4 agent publishes.
+
+Each 10 Hz cycle sends two setpoints:
+
+- `OffboardControlMode` with `velocity` true and position, acceleration, attitude, and body rate false. PX4 accepts offboard only while this message keeps arriving, and it leaves offboard if the stream stops.
+- `TrajectorySetpoint` with position, acceleration, jerk, and yaw set to NaN so those fields are ignored. `velocity` is local NED: x north, y east, z down. `yawspeed` is the yaw rate.
+
+`/fmu/out/vehicle_attitude` supplies the quaternion in scalar-first order (`w, x, y, z`). The node turns that into yaw and uses it to rotate the body-forward speed into the NED `velocity` above.
+
+Mode and arming go out as `VehicleCommand` from companion component 191 (`from_external` true, target system 1, target component 1):
+
+- `VEHICLE_CMD_DO_SET_MODE` with `param1 = 1` and `param2 = 6` selects PX4 custom mode offboard.
+- `VEHICLE_CMD_COMPONENT_ARM_DISARM` with `param1 = 1` arms.
+
+Those two commands are sent on the cycle where the setpoint counter reaches 10, which is one second after the node starts. The setpoint stream is already running by then, which is the precondition PX4 requires before it will enter offboard.
+
 ## Build
 
 ROS 2 Jazzy, with `vision_msgs` and `python3-numpy` installed:
@@ -57,6 +87,37 @@ ros2 run flight_control_node start_flight
 ```
 
 `start_flight` is the console script for `flight_control_node.flight_node:main`.
+
+## Tested in Gazebo Harmonic
+
+The node was flown in PX4 SITL against Gazebo Harmonic (`gz-sim` 8.14) using the `x500_mono_cam` airframe in the `baylands` world. The PX4 tree was `~/src/PX4-Autopilot` at `v1.18.0-alpha1-113-g1403709f65`. The camera and the YOLO detector are outside this repo: `ros_gz_image` bridges the Gazebo image, and [ros2_yolos_cpp](https://github.com/Geekgineer/ros2_yolos_cpp) publishes `/yolos_detector/detections` from a YOLO11n ONNX model.
+
+Four terminals, each with ROS 2 Jazzy sourced. The flight-control terminal also sources this workspace.
+
+```bash
+# 1. PX4 SITL + Gazebo Harmonic
+cd ~/src/PX4-Autopilot
+export PX4_GZ_WORLD=baylands
+make px4_sitl gz_x500_mono_cam
+
+# 2. uXRCE-DDS agent
+MicroXRCEAgent udp4 -p 8888
+
+# 3. Gazebo camera → ROS image
+ros2 run ros_gz_image image_bridge \
+  /world/baylands/model/x500_mono_cam_0/link/camera_link/sensor/camera/image
+
+# 4. Detector, then the flight node
+ros2 launch ros2_yolos_cpp detector.launch.py \
+  model_path:=~/ros2_ws/models/yolo11n.onnx \
+  labels_path:=~/ros2_ws/models/coco.names \
+  image_topic:=/world/baylands/model/x500_mono_cam_0/link/camera_link/sensor/camera/image
+ros2 lifecycle set /yolos_detector configure
+ros2 lifecycle set /yolos_detector activate
+ros2 run flight_control_node start_flight
+```
+
+On this machine the SITL build was started with `QT_QPA_PLATFORM=xcb` so the Gazebo window opened under X11.
 
 ## License
 
