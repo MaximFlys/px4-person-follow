@@ -4,6 +4,8 @@ I wrote `flight_control_node` to close a vision loop on a PX4 quadcopter. An Ope
 
 The program I wrote is `src/flight_control_node/flight_control_node/flight_node.py`. The console script is `start_flight`.
 
+The flight package does not embed the vision model. Recreating the flight requires OpenCV, the YOLO11n ONNX file, and the detector that turns camera frames into `/yolos_detector/detections`. Install those before building. `./scripts/run_gazebo_sim.sh` exits if the model or the detector build is missing.
+
 ## Data pipeline
 
 Gazebo does not talk to my node, and my node does not talk to Gazebo. Each stage has one job:
@@ -128,9 +130,64 @@ Ten hertz, in this order:
 
 `px4_msgs` in this workspace is [PX4/px4_msgs](https://github.com/PX4/px4_msgs) at `ca9895d` (package 2.0.1, aligned with PX4 `07bac138`). The message package has to match the firmware.
 
+## Requirements
+
+Ubuntu 24.04 and ROS 2 Jazzy. One script installs the rest, including OpenCV and the YOLO11n model:
+
+```bash
+./scripts/install_requirements.sh
+```
+
+What that script installs:
+
+| Requirement | Why it is required | How it is installed |
+| --- | --- | --- |
+| ROS 2 Jazzy | `rclpy` and the rest of the graph | Install Jazzy first. The script stops if `/opt/ros/jazzy/setup.bash` is missing. |
+| `libopencv-dev` (OpenCV 4.6) | `ros2_yolos_cpp` calls `find_package(OpenCV REQUIRED)` and will not configure without it | `apt install libopencv-dev` |
+| `ros-jazzy-cv-bridge` | Converts the camera `sensor_msgs/Image` into the OpenCV BGR `cv::Mat` the model runs on | apt |
+| `ros-jazzy-vision-msgs` | Detection message my node subscribes to | apt |
+| `ros-jazzy-ros-gz-image` | Gazebo camera to ROS image | apt |
+| `ros-jazzy-rqt-image-view` | Camera window in the sim | apt |
+| `python3-numpy` | Quaternion math in `flight_node.py` | apt |
+| [ros2_yolos_cpp](https://github.com/Geekgineer/ros2_yolos_cpp) | Lifecycle node that runs the model and publishes `/yolos_detector/detections` | Cloned into `~/ros2_ws/src` and built in Release. Its CMake downloads ONNX Runtime 1.20.1 if it is not already on the machine. |
+| `yolo11n.onnx` | The weights. Half precision, exported from `yolo11n.pt` | `pip install ultralytics`, then `YOLO("yolo11n.pt").export(format="onnx", half=True)` into `~/ros2_ws/models/yolo11n.onnx` |
+| `models/coco.names` | Class names. Line 1 is `person`, which is class 0. My node accepts `person` and `0`. | Copied from this repo into `~/ros2_ws/models/coco.names` |
+| [px4_msgs](https://github.com/PX4/px4_msgs) `ca9895d` | PX4 message definitions, package 2.0.1 | Cloned into `src/px4_msgs` |
+| PX4-Autopilot `1403709f65` | SITL firmware used for the Gazebo test | Cloned to `~/src/PX4-Autopilot` |
+| Gazebo Harmonic (`gz` 8) | Simulator | `~/src/PX4-Autopilot/Tools/setup/ubuntu.sh --no-nuttx` when `gz` is not already installed |
+| Micro XRCE-DDS Agent | UDP port 8888 bridge between PX4 and ROS 2 | Built from [eProsima/Micro-XRCE-DDS-Agent](https://github.com/eProsima/Micro-XRCE-DDS-Agent) and installed if `MicroXRCEAgent` is not on `PATH` |
+
+`package.xml` only lists what `flight_control_node` itself imports: `rclpy`, `vision_msgs`, `geometry_msgs`, `px4_msgs`, and `python3-numpy`. OpenCV and YOLO11n sit in front of that node. Without them there is no detection topic, and the watchdog holds the velocity command at zero.
+
+To install the same pieces by hand:
+
+```bash
+sudo apt update
+sudo apt install -y \
+  ros-jazzy-vision-msgs \
+  ros-jazzy-cv-bridge \
+  libopencv-dev \
+  ros-jazzy-ros-gz-image \
+  ros-jazzy-rqt-image-view \
+  python3-numpy \
+  python3-pip \
+  python3-colcon-common-extensions
+
+mkdir -p ~/ros2_ws/src ~/ros2_ws/models
+git clone https://github.com/Geekgineer/ros2_yolos_cpp.git ~/ros2_ws/src/ros2_yolos_cpp
+cp models/coco.names ~/ros2_ws/models/coco.names
+source /opt/ros/jazzy/setup.bash
+cd ~/ros2_ws
+colcon build --packages-select ros2_yolos_cpp --cmake-args -DCMAKE_BUILD_TYPE=Release
+
+python3 -m pip install --user ultralytics
+cd ~/ros2_ws/models
+python3 -c 'from ultralytics import YOLO; YOLO("yolo11n.pt").export(format="onnx", half=True)'
+```
+
 ## Build
 
-ROS 2 Jazzy, with `vision_msgs` and `python3-numpy` installed:
+ROS 2 Jazzy, OpenCV, and the packages in Requirements:
 
 ```bash
 git clone https://github.com/MaximFlys/px4-person-follow.git
@@ -161,7 +218,7 @@ The node commands offboard and arms about one second later. I run it in the simu
 
 ## Gazebo Harmonic
 
-I tested this in PX4 SITL against Gazebo Harmonic (`gz-sim` 8.14), airframe `x500_mono_cam`, world `baylands`. The PX4 tree is `~/src/PX4-Autopilot` at `v1.18.0-alpha1-113-g1403709f65`.
+Run `./scripts/install_requirements.sh` first so OpenCV, `yolo11n.onnx`, and `coco.names` are on disk. I tested the flight in PX4 SITL against Gazebo Harmonic (`gz-sim` 8.14), airframe `x500_mono_cam`, world `baylands`. The PX4 tree is `~/src/PX4-Autopilot` at `v1.18.0-alpha1-113-g1403709f65`.
 
 `./scripts/run_gazebo_sim.sh` opens the seven windows I used to paste by hand, and it waits on the slow steps. The image bridge, camera view, and YOLO launch wait until PX4 prints `Ready for takeoff`. The flight window waits until window 6 has configured and activated `/yolos_detector`.
 

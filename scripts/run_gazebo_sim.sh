@@ -157,7 +157,13 @@ launch_terminals() {
     exit 1
   fi
   if [[ ! -f "$YOLO_MODEL" || ! -f "$YOLO_LABELS" ]]; then
-    echo "YOLO model files not found under ${YOLO_WS}/models." >&2
+    echo "YOLO11n model is missing (${YOLO_MODEL} and ${YOLO_LABELS})." >&2
+    echo "Run ./scripts/install_requirements.sh to install OpenCV and export the model." >&2
+    exit 1
+  fi
+  if [[ ! -f "${YOLO_WS}/install/setup.bash" ]]; then
+    echo "ros2_yolos_cpp is not built in ${YOLO_WS}." >&2
+    echo "Run ./scripts/install_requirements.sh." >&2
     exit 1
   fi
   if [[ ! -f "${SUPER_WS}/install/setup.bash" ]]; then
