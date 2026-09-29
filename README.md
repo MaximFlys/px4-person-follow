@@ -133,8 +133,8 @@ Ten hertz, in this order:
 ROS 2 Jazzy, with `vision_msgs` and `python3-numpy` installed:
 
 ```bash
-git clone https://github.com/MaximFlys/DFC.git
-cd DFC
+git clone https://github.com/MaximFlys/px4-person-follow.git
+cd px4-person-follow
 git clone https://github.com/PX4/px4_msgs.git src/px4_msgs
 git -C src/px4_msgs checkout ca9895d26b88ffc14209daf2fc8d8564e51adddd
 
