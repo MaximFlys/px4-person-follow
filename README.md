@@ -1,5 +1,9 @@
 # px4-person-follow
 
+https://github.com/user-attachments/assets/3e72218e-8e8c-4aa8-aa15-8a065448f80c
+
+Gazebo Harmonic sim of the flight: the x500 camera locks a person, the drone closes in, and it slows to loiter. The file is [DroneProjectVideo.mov](DroneProjectVideo.mov).
+
 I wrote `flight_control_node` to close a vision loop on a PX4 quadcopter. An OpenCV image pipeline runs a YOLO11n model on the drone camera. My node subscribes to those detections and publishes the velocity setpoints PX4 flies.
 
 The program I wrote is `src/flight_control_node/flight_control_node/flight_node.py`. The console script is `start_flight`.
